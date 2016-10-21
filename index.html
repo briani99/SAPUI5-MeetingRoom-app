@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+
+    <title>Meeting Room Locator</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="resources/iscroll-zoom.js"></script>
+    <script src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js" 
+        id="sap-ui-bootstrap"
+        data-sap-ui-libs="sap.m, sap.ui.core" 
+        data-sap-ui-theme="sap_bluecrystal">
+    </script> 
+    <script>
+      	// create a mobile App
+      	// it initializes the HTML page for mobile use and provides animated page handling
+      	var app = new sap.m.App("myApp" 
+      							,{initialPage:"mainScreen"}
+      	);
+      	//create the pages
+      	sap.ui.localResources("roomgui");
+      	var main = new sap.ui.view({
+									id:"mainScreen",
+									viewName:"roomgui.main",
+									type:sap.ui.core.mvc.ViewType.JS});
+      	var list = new sap.ui.view({
+    								id:"listScreen",
+    								viewName:"roomgui.roomListView",
+    								type:sap.ui.core.mvc.ViewType.JS});
+      	var floor = new sap.ui.view({
+									id:"floorScreen",
+									viewName:"roomgui.floor",
+									type:sap.ui.core.mvc.ViewType.JS});
+      	var details = new sap.ui.view({
+    								id:"detailScreen",
+    								viewName:"roomgui.roomDetail",
+    								type:sap.ui.core.mvc.ViewType.JS});
+      	
+
+		//add both pages to the App
+      	app.addPage(main).addPage(list).addPage(details);
+		app.addPage(floor);
+      	app.placeAt("content");
+    </script>
+ 
+  </head>
+  <body class="sapUiBody">
+    <div id="content"></div>
+  </body>
+</html>
